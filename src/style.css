@@ -1,1 +1,98 @@
-/* We'll add our styles here */
+:root {
+  /* ─── Colors (dark theme) ───────────────────────────────────────────── */
+  /* Base */
+  --color-bg: #0f0f0f;
+  --color-surface: #1a1a1a;
+  --color-surface-elevated: #242424;
+  --color-text: #f0f0f0;
+  --color-text-muted: #8a8a8a;
+  --color-border: #2e2e2e;
+  --color-border-focus: #4a4a4a;
+
+  /* Work mode (focus) */
+  --color-work: #e85d4c;
+  --color-work-muted: #c44a3a;
+  --color-work-glow: rgba(232, 93, 76, 0.25);
+  --color-work-bg: rgba(232, 93, 76, 0.12);
+
+  /* Break mode (rest) */
+  --color-break: #3db39e;
+  --color-break-muted: #2d8f7d;
+  --color-break-glow: rgba(61, 179, 158, 0.25);
+  --color-break-bg: rgba(61, 179, 158, 0.12);
+
+  /* Semantic */
+  --color-accent: var(--color-work);
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+
+  /* ─── Spacing scale ─────────────────────────────────────────────────── */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;   /* 8px */
+  --space-md: 1rem;     /* 16px */
+  --space-lg: 1.5rem;   /* 24px */
+  --space-xl: 2rem;     /* 32px */
+  --space-2xl: 3rem;    /* 48px */
+  --space-3xl: 4rem;    /* 64px */
+
+  /* ─── Typography ────────────────────────────────────────────────────── */
+  --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-md: 1.125rem;    /* 18px */
+  --text-lg: 1.25rem;     /* 20px */
+  --text-xl: 1.5rem;      /* 24px */
+  --text-2xl: 2rem;      /* 32px */
+  --text-timer: 4.5rem;   /* 72px – large timer display */
+  --text-timer-sm: 3rem;  /* 48px – compact timer */
+
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ─── Border radius ──────────────────────────────────────────────────── */
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 0.75rem;   /* 12px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-2xl: 1.5rem;   /* 24px */
+  --radius-full: 9999px;  /* pill/circle */
+}
+
+/* ─── Base / reset ────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Body ────────────────────────────────────────────────────────────── */
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+}
+
+/* ─── App container (centered layout) ─────────────────────────────────── */
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+}

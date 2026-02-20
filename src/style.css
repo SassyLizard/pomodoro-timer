@@ -10,10 +10,10 @@
   --color-border-focus: #4a4a4a;
 
   /* Work mode (focus) */
-  --color-work: #e85d4c;
-  --color-work-muted: #c44a3a;
+  --color-work: #923225;
+  --color-work-muted: #b34738;
   --color-work-glow: rgba(232, 93, 76, 0.25);
-  --color-work-bg: rgba(232, 93, 76, 0.12);
+  --color-work-bg: rgb(232, 180, 76);
 
   /* Break mode (rest) */
   --color-break: #3db39e;
@@ -68,6 +68,17 @@
   --radius-full: 9999px;  /* pill/circle */
 }
 
+/* ─── Mode overrides ──────────────────────────────────────────────────── */
+body[data-mode="work"] {
+  --color-bg: var(--color-work-bg);
+  --color-accent: var(--color-work);
+}
+
+body[data-mode="break"] {
+  --color-bg: var(--color-break-bg);
+  --color-accent: var(--color-break);
+}
+
 /* ─── Base / reset ────────────────────────────────────────────────────── */
 *,
 *::before,
@@ -119,7 +130,7 @@ body {
   font-size: var(--text-timer);
   font-weight: var(--font-weight-medium);
   line-height: var(--leading-tight);
-  color: var(--color-text);
+  color: var(--color-accent);
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.02em;
 }
@@ -174,7 +185,3 @@ body {
 .timer__btn--secondary:active {
   background-color: var(--color-border);
 }
-
-#app[data-mode="work"] .time-display {
-    color: var(--color-work);
-}  

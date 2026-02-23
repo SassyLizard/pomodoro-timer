@@ -123,6 +123,26 @@ body[data-mode="break"] {
   padding: 0;
 }
 
+/* ─── Timer zero flash animation ───────────────────────────────────────── */
+@keyframes timer-flash {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+body.timer-flash::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-accent);
+  pointer-events: none;
+  z-index: 1;
+  animation: timer-flash 0.55s ease-out forwards;
+}
+
 /* ─── Body ────────────────────────────────────────────────────────────── */
 body {
   font-family: var(--font-body);
@@ -254,6 +274,11 @@ body[data-mode="work"] .timer__btn--secondary {
 
 body[data-mode="work"] .timer__btn--secondary:hover {
   color: #e8e8e8;
+}
+
+body[data-mode="work"] .timer__btn--secondary:active {
+  background-color: #e8d4a0;
+  color: var(--color-work-text-input);
 }
 
 .timer__btn--secondary {

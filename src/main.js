@@ -22,6 +22,28 @@ function formatTime(seconds) {
   return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
 }
 
+function playNotificationSound() {
+  try {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const beepDuration = 0.12;
+    const gap = 0.08;
+    for (let i = 0; i < 3; i++) {
+      const t = audioContext.currentTime + i * (beepDuration + gap);
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      oscillator.frequency.value = 880;
+      oscillator.type = 'sine';
+      gainNode.gain.setValueAtTime(0, t);
+      gainNode.gain.linearRampToValueAtTime(0.2, t + 0.02);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, t + beepDuration);
+      oscillator.start(t);
+      oscillator.stop(t + beepDuration);
+    }
+  } catch (_) {}
+}
+
 function switchMode() {
   currentMode = currentMode === 'work' ? 'break' : 'work';
   timeRemaining = currentMode === 'work' ? workDuration : breakDuration;
@@ -33,10 +55,13 @@ function switchMode() {
   displayEl.setAttribute('aria-label', `Time remaining: ${formatTime(timeRemaining)}`);
   previewModeBtn.setAttribute('aria-checked', currentMode === 'break');
   if (previewModeLabel) previewModeLabel.textContent = currentMode === 'work' ? 'Break mode' : 'Work mode';
+  document.body.classList.add('timer-flash');
+  setTimeout(() => document.body.classList.remove('timer-flash'), 550);
 }
 
 function tick() {
   if (timeRemaining <= 0) {
+    playNotificationSound();
     switchMode();
     return;
   }

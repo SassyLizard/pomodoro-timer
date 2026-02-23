@@ -30,8 +30,9 @@
             </div>
         </main>
         <section class="settings-panel" aria-labelledby="settings-heading">
-            <h2 class="settings-panel__heading" id="settings-heading">Customise your timer</h2> 
-            <div class="settings-panel__row settings-panel__row--fields">
+            <button type="button" class="settings-panel__trigger" id="settings-heading" aria-expanded="false" aria-controls="settings-panel-body">Customise your timer</button>
+            <div class="settings-panel__body" id="settings-panel-body" hidden>
+                <div class="settings-panel__row settings-panel__row--fields">
                 <div class="settings-panel__field">
                     <label class="settings-panel__label" for="settings-work-minutes">Work</label>
                     <div class="settings-panel__stepper">
@@ -49,6 +50,7 @@
                     </div>
                 </div>
                 <button type="button" class="settings-panel__apply timer__btn timer__btn--primary" id="settings-apply">Apply</button>
+                </div>
             </div>
         </section>
     </div>

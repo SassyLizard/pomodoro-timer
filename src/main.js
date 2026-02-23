@@ -8,6 +8,9 @@ const previewModeBtn = document.getElementById('timer-preview-mode');
 const settingsWorkInput = document.getElementById('settings-work-minutes');
 const settingsBreakInput = document.getElementById('settings-break-minutes');
 const settingsApplyBtn = document.getElementById('settings-apply');
+const settingsPanel = document.querySelector('.settings-panel');
+const settingsPanelTrigger = document.getElementById('settings-heading');
+const settingsPanelBody = document.getElementById('settings-panel-body');
 
 let workDuration = 25 * 60;   // seconds
 let breakDuration = 5 * 60;   // seconds
@@ -131,6 +134,20 @@ const previewModeLabel = document.querySelector('.timer__preview-mode-label');
 previewModeBtn.addEventListener('click', toggleModeForPreview);
 if (previewModeLabel) previewModeLabel.addEventListener('click', toggleModeForPreview);
 settingsApplyBtn.addEventListener('click', applySettings);
+
+function toggleSettingsPanel() {
+  const isOpen = settingsPanel.classList.toggle('settings-panel--open');
+  settingsPanelTrigger.setAttribute('aria-expanded', String(isOpen));
+  if (isOpen) {
+    settingsPanelBody.hidden = false;
+  } else {
+    settingsPanelBody.addEventListener('transitionend', function onEnd() {
+      settingsPanelBody.removeEventListener('transitionend', onEnd);
+      settingsPanelBody.hidden = true;
+    }, { once: true });
+  }
+}
+settingsPanelTrigger.addEventListener('click', toggleSettingsPanel);
 
 document.querySelectorAll('.settings-panel__step').forEach((btn) => {
   btn.addEventListener('click', () => {

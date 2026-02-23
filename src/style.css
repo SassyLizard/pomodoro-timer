@@ -181,7 +181,7 @@ body {
 }
 
 .timer__mode {
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-muted);
   letter-spacing: 0.05em;
@@ -363,7 +363,7 @@ body[data-mode="work"] .timer__preview-mode:hover .timer__preview-mode-label {
 
 /* ─── Settings panel ──────────────────────────────────────────────────── */
 .settings-panel {
-  margin-top: var(--space-2xl);
+  margin-top: var(--space-xl);
   padding: var(--space-xl) var(--space-lg);
   background-color: var(--color-surface);   
   border: none;
@@ -374,6 +374,64 @@ body[data-mode="work"] .timer__preview-mode:hover .timer__preview-mode-label {
   width: 100%;
   max-width: 680px;
   min-width: 320px;
+  transition: background-color 0.25s ease, padding 0.25s ease;
+}
+
+.settings-panel:not(.settings-panel--open) {
+  background-color: transparent;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.settings-panel:not(.settings-panel--open) .settings-panel__trigger {
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-medium);
+}
+
+.settings-panel:not(.settings-panel--open) .settings-panel__trigger:hover {
+  color: var(--color-text);
+  opacity: 1;
+}
+
+body[data-mode="work"] .settings-panel:not(.settings-panel--open) .settings-panel__trigger:hover {
+  color: #87392B;
+  opacity: 1;
+}
+
+.settings-panel__trigger {
+  font-family: "Fustat", var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-medium);
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.settings-panel__trigger:hover {
+  opacity: 0.85;
+}
+
+.settings-panel__trigger:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.settings-panel__body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
+}
+
+.settings-panel--open .settings-panel__body {
+  max-height: 320px;
+  padding-top: var(--space-md);
 }
 
 body[data-mode="work"] .settings-panel {
@@ -381,7 +439,7 @@ body[data-mode="work"] .settings-panel {
   color: #50190F;
 }
 
-body[data-mode="work"] .settings-panel__heading,
+body[data-mode="work"] .settings-panel__trigger,
 body[data-mode="work"] .settings-panel__label {
   color: #50190F;
 }
@@ -409,17 +467,12 @@ body[data-mode="break"] .settings-panel__apply:active {
   color: #0B2B2C;
 }
 
-.settings-panel__heading {
-  font-family: "Fustat", var(--font-body);
-  font-size: var(--text-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text);
-  margin: 0 0 var(--space-xl) 0;
-  text-align: center;
+body[data-mode="break"] .settings-panel__trigger {
+  color: #29544A;
 }
 
-body[data-mode="break"] .settings-panel__heading {
-  color: #29544A;
+body[data-mode="break"] .settings-panel--open .settings-panel__trigger {
+  color: var(--color-settings-input-text);
 }
 
 .settings-panel__row {

@@ -202,7 +202,7 @@ body {
   font-size: var(--text-base);
   font-weight: var(--font-weight-medium);
   padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
@@ -231,6 +231,14 @@ body[data-mode="work"] .timer__btn--primary:hover {
   filter: none;
 }
 
+body[data-mode="work"] .timer__btn--secondary {
+  color: #8B605E;
+}
+
+body[data-mode="work"] .timer__btn--secondary:hover {
+  color: #e8e8e8;
+}
+
 .timer__btn--secondary {
   background-color: var(--color-surface);
   color: var(--color-text-muted);
@@ -251,19 +259,63 @@ body[data-mode="work"] .timer__btn--primary:hover {
   position: fixed;
   top: var(--space-md);
   right: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
   font-family: var(--font-body);
   font-size: var(--text-sm);
   color: var(--color-text-muted);
-  background: none;
-  border: 1px dashed var(--color-border);
-  border-radius: var(--radius-sm);
-  padding: var(--space-xs) var(--space-sm);
+}
+
+.timer__preview-mode-label {
+  user-select: none;
   cursor: pointer;
 }
 
-.timer__preview-mode:hover {
+.timer__preview-mode-switch {
+  position: relative;
+  width: 3rem;
+  height: 1.5rem;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.2s;
+}
+
+.timer__preview-mode-switch::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: calc(1.5rem - 6px);
+  height: calc(1.5rem - 6px);
+  border-radius: var(--radius-full);
+  background-color: var(--color-text-muted);
+  transition: transform 0.2s;
+}
+
+.timer__preview-mode-switch[aria-checked="true"] {
+  background-color: var(--color-accent);
+}
+
+.timer__preview-mode-switch[aria-checked="true"]::after {
+  transform: translateX(1.5rem);
+  background-color: var(--color-text);
+}
+
+body[data-mode="break"] .timer__preview-mode-switch {
+  background-color: var(--color-surface);
+}
+
+.timer__preview-mode:hover .timer__preview-mode-label {
   color: var(--color-text);
-  border-color: var(--color-border-focus);
+}
+
+body[data-mode="work"] .timer__preview-mode:hover .timer__preview-mode-label {
+  color: #87392B;
 }
 
 /* ─── Settings panel ──────────────────────────────────────────────────── */
@@ -272,7 +324,7 @@ body[data-mode="work"] .timer__btn--primary:hover {
   padding: var(--space-md) var(--space-lg) var(--space-lg);
   background-color: var(--color-surface);   
   border: none;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);

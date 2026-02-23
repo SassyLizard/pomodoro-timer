@@ -31,6 +31,8 @@ function switchMode() {
   modeEl.setAttribute('aria-label', `Current mode: ${currentMode === 'work' ? 'Work' : 'Break'}`);
   displayEl.textContent = formatTime(timeRemaining);
   displayEl.setAttribute('aria-label', `Time remaining: ${formatTime(timeRemaining)}`);
+  previewModeBtn.setAttribute('aria-checked', currentMode === 'break');
+  if (previewModeLabel) previewModeLabel.textContent = currentMode === 'work' ? 'Break mode' : 'Work mode';
 }
 
 function tick() {
@@ -76,6 +78,8 @@ function updateDisplay() {
   modeEl.setAttribute('aria-label', `Current mode: ${currentMode === 'work' ? 'Work' : 'Break'}`);
   app.dataset.mode = currentMode;
   document.body.dataset.mode = currentMode;
+  previewModeBtn.setAttribute('aria-checked', currentMode === 'break');
+  if (previewModeLabel) previewModeLabel.textContent = currentMode === 'work' ? 'Break mode' : 'Work mode';
 }
 
 function applySettings() {
@@ -98,7 +102,9 @@ function toggleModeForPreview() {
 
 startPauseBtn.addEventListener('click', startPause);
 resetBtn.addEventListener('click', reset);
+const previewModeLabel = document.querySelector('.timer__preview-mode-label');
 previewModeBtn.addEventListener('click', toggleModeForPreview);
+if (previewModeLabel) previewModeLabel.addEventListener('click', toggleModeForPreview);
 settingsApplyBtn.addEventListener('click', applySettings);
 
 document.querySelectorAll('.settings-panel__step').forEach((btn) => {

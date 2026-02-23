@@ -19,7 +19,10 @@
                     <button type="button" class="timer__btn timer__btn--secondary" id="timer-reset" aria-label="Reset timer">Reset</button>
                 </div>
             </div>
-            <button type="button" class="timer__preview-mode" id="timer-preview-mode" title="Temporary: toggle work/break to preview UI">Preview mode</button>
+            <div class="timer__preview-mode" id="timer-preview-mode-wrap">
+                <span class="timer__preview-mode-label">Break mode</span>
+                <button type="button" class="timer__preview-mode-switch" id="timer-preview-mode" role="switch" aria-checked="false" aria-label="Toggle work/break preview" title="Temporary: toggle work/break to preview UI"></button>
+            </div>
         </main>
         <section class="settings-panel" aria-labelledby="settings-heading">
             <h2 class="settings-panel__heading" id="settings-heading">Customise your timer</h2> 

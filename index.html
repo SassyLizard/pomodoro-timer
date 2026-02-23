@@ -9,13 +9,40 @@
 <body>
     <div id="app">
         <main class="timer" role="timer" aria-live="polite">
-            <p class="timer__mode" id="timer-mode" aria-label="Current mode">Work</p>
-            <p class="timer__display" id="timer-display" aria-label="Time remaining">25:00</p>
-            <div class="timer__controls">
-                <button type="button" class="timer__btn timer__btn--primary" id="timer-start-pause" aria-label="Start timer">Start</button>
-                <button type="button" class="timer__btn timer__btn--secondary" id="timer-reset" aria-label="Reset timer">Reset</button>
+            <div class="timer__row">
+                <p class="timer__mode" id="timer-mode" aria-label="Current mode">Work</p>
+                <div class="timer__display-wrap">
+                    <p class="timer__display" id="timer-display" aria-label="Time remaining">25:00</p>
+                </div>
+                <div class="timer__controls">
+                    <button type="button" class="timer__btn timer__btn--primary" id="timer-start-pause" aria-label="Start timer">Start</button>
+                    <button type="button" class="timer__btn timer__btn--secondary" id="timer-reset" aria-label="Reset timer">Reset</button>
+                </div>
             </div>
+            <button type="button" class="timer__preview-mode" id="timer-preview-mode" title="Temporary: toggle work/break to preview UI">Preview mode</button>
         </main>
+        <section class="settings-panel" aria-labelledby="settings-heading">
+            <h2 class="settings-panel__heading" id="settings-heading">Customise your timer</h2> 
+            <div class="settings-panel__row settings-panel__row--fields">
+                <div class="settings-panel__field">
+                    <label class="settings-panel__label" for="settings-work-minutes">Work</label>
+                    <div class="settings-panel__stepper">
+                        <input type="number" id="settings-work-minutes" min="1" max="60" class="settings-panel__input" aria-label="Work duration in minutes" value="25">
+                        <button type="button" class="settings-panel__step settings-panel__step--up" aria-label="Increase work minutes" data-for="settings-work-minutes"></button>
+                        <button type="button" class="settings-panel__step settings-panel__step--down" aria-label="Decrease work minutes" data-for="settings-work-minutes"></button>
+                    </div>
+                </div>
+                <div class="settings-panel__field">
+                    <label class="settings-panel__label" for="settings-break-minutes">Break</label>
+                    <div class="settings-panel__stepper">
+                        <input type="number" id="settings-break-minutes" min="1" max="60" class="settings-panel__input" aria-label="Break duration in minutes" value="5">
+                        <button type="button" class="settings-panel__step settings-panel__step--up" aria-label="Increase break minutes" data-for="settings-break-minutes"></button>
+                        <button type="button" class="settings-panel__step settings-panel__step--down" aria-label="Decrease break minutes" data-for="settings-break-minutes"></button>
+                    </div>
+                </div>
+                <button type="button" class="settings-panel__apply timer__btn timer__btn--primary" id="settings-apply">Apply</button>
+            </div>
+        </section>
     </div>
     <script type="module" src="/src/main.js"></script>
 </body>

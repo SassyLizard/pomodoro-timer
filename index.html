@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro Timer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fustat:wght@400;500;600;700&family=Sofia+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/style.css">
 </head>
 <body>
     <div id="app">
         <main class="timer" role="timer" aria-live="polite">
-            <div class="timer__row">
+            <div class="timer__header-row">
                 <p class="timer__mode" id="timer-mode" aria-label="Current mode">Work</p>
+            </div>
+            <div class="timer__row">
                 <div class="timer__display-wrap">
                     <p class="timer__display" id="timer-display" aria-label="Time remaining">25:00</p>
                 </div>

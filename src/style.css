@@ -10,19 +10,19 @@
   --color-border-focus: #6f6e6e;  /* light gray */
 
 
-  /* Work mode (focus) */
-  --color-work: #923225;
-  --color-work-muted: #b34738;
-  --color-work-glow: rgba(232, 93, 76, 0.25);
-  --color-work-bg: #e8b44c;
-  --color-work-bg-input: #e8e7e7;
-  --color-work-text: #f2f1f1;   /* very light gray */
-  --color-work-surface: #56242484;      /* dark red */  
-  --color-work-text-input: #350707;  /* dark red */
-  --color-work-text-muted: #5a3636;  /* dark red */
-  --color-work-button: #923225;  /* dark red */
-  --color-work-border-focus: #eac446;  /* yellow */
-  --color-work-text-focus: #f2f1f1;  /* very light gray */
+  /* Work mode (focus) – pink/purple palette */
+  --color-work: #c026d3;                 /* primary accent – vivid violet */
+  --color-work-muted: #e879f9;          /* softer accent */
+  --color-work-glow: rgba(216, 180, 254, 0.3);
+  --color-work-bg: #fdf2ff;             /* light lavender background */
+  --color-work-bg-input: #fae8ff;       /* soft input background */
+  --color-work-text: #fdf4ff;           /* very light text */
+  --color-work-surface: #f3e8ff;        /* subtle surface tint */
+  --color-work-text-input: #4a044e;     /* deep plum */
+  --color-work-text-muted: #7e22ce;     /* muted violet */
+  --color-work-button: #c026d3;         /* primary button */
+  --color-work-border-focus: #e879f9;   /* focus ring */
+  --color-work-text-focus: #fdf4ff;     /* high-emphasis text */
 
   /* Break mode (rest) */
   --color-break: #1b6a5b;
@@ -93,8 +93,8 @@ body[data-mode="work"] {
   --color-bg: var(--color-work-bg);
   --color-accent: var(--color-work);
   --color-text: var(--color-work-text);
-  --color-surface: #FED683;
-  --color-settings-input-bg: #FFF5DE;
+  --color-surface: var(--color-work-surface);
+  --color-settings-input-bg: var(--color-work-bg-input);
   --color-settings-input-text: var(--color-work-text-input);
   --color-border-focus: var(--color-work-border-focus);  /* yellow */
   --color-text-muted: var(--color-work-text-muted);  /* very dark red */
@@ -253,7 +253,7 @@ body {
 }
 
 body[data-mode="work"] .timer__controls .timer__btn--primary:active {
-  background-color: #FF9B58;
+  background-color: #e879f9;
   filter: none;
 }
 
@@ -264,20 +264,20 @@ body[data-mode="break"] .timer__controls .timer__btn--primary:active {
 }
 
 body[data-mode="work"] .timer__btn--primary:hover {
-  background-color: #730103;
+  background-color: #a21caf;
   filter: none;
 }
 
 body[data-mode="work"] .timer__btn--secondary {
-  color: #8B605E;
+  color: #7e22ce;
 }
 
 body[data-mode="work"] .timer__btn--secondary:hover {
-  color: #e8e8e8;
+  color: #fdf4ff;
 }
 
 body[data-mode="work"] .timer__btn--secondary:active {
-  background-color: #e8d4a0;
+  background-color: #f3e8ff;
   color: var(--color-work-text-input);
 }
 
@@ -358,7 +358,7 @@ body[data-mode="break"] .timer__preview-mode-switch {
 }
 
 body[data-mode="work"] .timer__preview-mode:hover .timer__preview-mode-label {
-  color: #87392B;
+  color: #a21caf;
 }
 
 /* ─── Settings panel ──────────────────────────────────────────────────── */
@@ -436,12 +436,12 @@ body[data-mode="work"] .settings-panel:not(.settings-panel--open) .settings-pane
 
 body[data-mode="work"] .settings-panel {
   border-color: var(--color-work-muted);
-  color: #50190F;
+  color: #4a044e;
 }
 
 body[data-mode="work"] .settings-panel__trigger,
 body[data-mode="work"] .settings-panel__label {
-  color: #50190F;
+  color: #4a044e;
 }
 
 body[data-mode="break"] .settings-panel {
@@ -459,7 +459,7 @@ body[data-mode="break"] .timer__btn--primary:hover {
 }
 
 body[data-mode="work"] .settings-panel__apply:active {
-  background-color: #FF9B58;
+  background-color: #e879f9;
 }
 
 body[data-mode="break"] .settings-panel__apply:active {
@@ -560,7 +560,7 @@ body[data-mode="break"] .settings-panel--open .settings-panel__trigger {
 
 .settings-panel__step--up,
 .settings-panel__step--down {
-  background-color: #e8b44c;
+  background-color: #e879f9;
 }
 
 .settings-panel__step--up {
@@ -586,7 +586,7 @@ body[data-mode="break"] .settings-panel__step--down {
 
 body[data-mode="work"] .settings-panel__step--up:active,
 body[data-mode="work"] .settings-panel__step--down:active {
-  background-color: #FF9B58;
+  background-color: #c026d3;
 }
 
 body[data-mode="break"] .settings-panel__step--up:active,
